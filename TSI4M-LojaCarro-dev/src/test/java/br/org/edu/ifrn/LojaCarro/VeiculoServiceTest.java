@@ -17,11 +17,11 @@ class VeiculoFeatureTests {
 
     @Test
     void testeCadastroVeiculo() throws Exception {
-        // Simula um POST para cadastrar
-        mockMvc.perform(post("/carro")
+        
+        mockMvc.perform(get("/carro")
                 .contentType("application/json")
                 .content("{\"marca\":\"Fiat\", \"modelo\":\"Uno\", \"ano\":2010}"))
-                .andExpect(status().isCreated()); // Ou isOk() dependendo da sua API
+                .andExpect(status().isCreated()); 
     }
 
     @Test

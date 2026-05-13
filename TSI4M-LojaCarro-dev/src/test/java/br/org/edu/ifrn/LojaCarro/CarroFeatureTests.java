@@ -13,7 +13,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-@ActiveProfiles("test") // Usa o banco H2 que configuramos
+@ActiveProfiles("test") // Usa o banco H2 
 class CarroFeatureTests {
 
     @Autowired
@@ -21,8 +21,8 @@ class CarroFeatureTests {
 
     @Test
     void testeCadastroCarro() throws Exception {
-        // Ajustado para bater com seu CarroController (/carro)
-        mockMvc.perform(get("/carro") // Você usou GetMapping no Controller para salvar
+        
+        mockMvc.perform(get("/carro") 
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("{\"modelo\":\"Civic\", \"ano\":2022}"))
                 .andExpect(status().isOk());
@@ -30,7 +30,7 @@ class CarroFeatureTests {
 
     @Test
     void testeBuscaCarro() throws Exception {
-        // Testa o endpoint de teste que você criou no MeuController
+
         mockMvc.perform(get("/teste"))
                 .andExpect(status().isOk())
                 .andExpect(content().string("bom dia"));
