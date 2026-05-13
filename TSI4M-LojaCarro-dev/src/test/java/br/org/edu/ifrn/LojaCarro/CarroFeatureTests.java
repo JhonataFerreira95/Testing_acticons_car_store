@@ -1,0 +1,46 @@
+package br.org.edu.ifrn.LojaCarro;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.web.servlet.MockMvc;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+
+@SpringBootTest
+@AutoConfigureMockMvc
+@ActiveProfiles("test") // Usa o banco H2 que configuramos
+class CarroFeatureTests {
+
+    @Autowired
+    private MockMvc mockMvc;
+
+    @Test
+    void testeCadastroCarro() throws Exception {
+        // Ajustado para bater com seu CarroController (/carro)
+        mockMvc.perform(get("/carro") // Você usou GetMapping no Controller para salvar
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("{\"modelo\":\"Civic\", \"ano\":2022}"))
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    void testeBuscaCarro() throws Exception {
+        // Testa o endpoint de teste que você criou no MeuController
+        mockMvc.perform(get("/teste"))
+                .andExpect(status().isOk())
+                .andExpect(content().string("bom dia"));
+    }
+
+    @Test
+    void testeSimularFalhaParaPipeline() throws Exception {
+        // ITEM 3: Use este teste para simular a falha proposital
+        // Mude para "boa noite" no push da falha e o pipeline ficará vermelho
+        mockMvc.perform(get("/teste"))
+                .andExpect(content().string("bom dia"));
+    }
+}

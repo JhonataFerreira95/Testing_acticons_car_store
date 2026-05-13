@@ -17,3 +17,8 @@ public class MeuController {
     }
 
 }
+@PostMapping("/login")
+public String login(@RequestBody String credentials) {
+    // Simulação simplificada de login
+    return "Login realizado com sucesso";
+}
