@@ -9,6 +9,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./TSI4M-LojaCarro-dev
 
     # Aqui definimos o MySQL que o GitHub vai rodar para você
     services:
