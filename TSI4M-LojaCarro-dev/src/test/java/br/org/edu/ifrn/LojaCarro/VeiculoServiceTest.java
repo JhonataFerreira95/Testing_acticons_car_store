@@ -21,7 +21,7 @@ class VeiculoFeatureTests {
         mockMvc.perform(get("/carro")
                 .contentType("application/json")
                 .content("{\"marca\":\"Fiat\", \"modelo\":\"Uno\", \"ano\":2010}"))
-                .andExpect(status().isCreated()); 
+                .andExpect(status().isOk()); 
     }
 
     @Test
