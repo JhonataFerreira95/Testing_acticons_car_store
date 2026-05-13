@@ -13,7 +13,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-@ActiveProfiles("test") // Usa o banco H2 
+@ActiveProfiles("test") 
 class CarroFeatureTests {
 
     @Autowired
@@ -38,8 +38,8 @@ class CarroFeatureTests {
 
     @Test
     void testeSimularFalhaParaPipeline() throws Exception {
-        // ITEM 3: Use este teste para simular a falha proposital
-        // Mude para "boa noite" no push da falha e o pipeline ficará vermelho
+       
+        // teste de falha do pipeline bom dia = deu certo, boa noite = deu errado
         mockMvc.perform(get("/teste"))
                 .andExpect(content().string("bom dia"));
     }

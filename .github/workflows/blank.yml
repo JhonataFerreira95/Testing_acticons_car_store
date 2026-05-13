@@ -13,7 +13,7 @@ jobs:
       run:
         working-directory: ./TSI4M-LojaCarro-dev
 
-    # Aqui definimos o MySQL que o GitHub vai rodar para você
+  
     services:
       mysql:
         image: mysql:8.0
@@ -37,7 +37,7 @@ jobs:
     - name: Run Tests
       run: mvn test
       env:
-        # Passamos as credenciais para o Spring Boot via variáveis de ambiente
+        
         SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/lojacarros
         SPRING_DATASOURCE_USERNAME: root
         SPRING_DATASOURCE_PASSWORD: root
