@@ -18,7 +18,7 @@ class VeiculoFeatureTests {
     @Test
     void testeCadastroVeiculo() throws Exception {
         // Simula um POST para cadastrar
-        mockMvc.perform(post("/carros")
+        mockMvc.perform(post("/carro")
                 .contentType("application/json")
                 .content("{\"marca\":\"Fiat\", \"modelo\":\"Uno\", \"ano\":2010}"))
                 .andExpect(status().isCreated()); // Ou isOk() dependendo da sua API
@@ -26,7 +26,7 @@ class VeiculoFeatureTests {
 
     @Test
     void testeBuscaVeiculos() throws Exception {
-        mockMvc.perform(get("/carros"))
+        mockMvc.perform(get("/teste"))
                 .andExpect(status().isOk());
     }
 
