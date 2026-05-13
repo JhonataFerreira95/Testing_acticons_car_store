@@ -41,6 +41,6 @@ class CarroFeatureTests {
         // ITEM 3: Use este teste para simular a falha proposital
         // Mude para "boa noite" no push da falha e o pipeline ficará vermelho
         mockMvc.perform(get("/teste"))
-                .andExpect(content().string("bom dia"));
+                .andExpect(content().string("boa noite"));
     }
 }
