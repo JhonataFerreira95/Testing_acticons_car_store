@@ -10,7 +10,7 @@ public class Carro {
     private Long id;
     private String modelo;
     private int ano;
-    private double valor;
+    private Double valor;
 
     // Getters e Setters
     public Long getId() {
@@ -37,11 +37,11 @@ public class Carro {
         this.ano = ano;
     }
 
-    public double getValor() {
+    public Double getValor() {
         return valor;
     }
 
-    public void setValor(double valor) {
+    public void setValor(Double valor) {
         this.valor = valor;
     }
 }
