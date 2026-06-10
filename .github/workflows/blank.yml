@@ -37,7 +37,21 @@ jobs:
     - name: Run Tests
       run: mvn test
       env:
-        
         SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/lojacarros
         SPRING_DATASOURCE_USERNAME: root
         SPRING_DATASOURCE_PASSWORD: root
+
+    - name: Run Mutation Tests (PIT)
+      run: mvn org.pitest:pitest-maven:mutationCoverage
+      env:
+        SPRING_DATASOURCE_URL: jdbc:mysql://localhost:3306/lojacarros
+        SPRING_DATASOURCE_USERNAME: root
+        SPRING_DATASOURCE_PASSWORD: root
+
+    - name: Upload PIT Report
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: pit-mutation-report
+        path: TSI4M-LojaCarro-dev/target/pit-reports/
+        retention-days: 14
