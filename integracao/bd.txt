@@ -1,0 +1,9 @@
+CREATE DATABASE IF NOT EXISTS loja_carro_db;
+USE loja_carro_db;
+
+CREATE TABLE carro (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    modelo VARCHAR(100) NOT NULL,
+    ano INT,
+    valor DECIMAL(10, 2)
+);
