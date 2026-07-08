@@ -1,38 +1,13 @@
-name: Java CI
+PS C:\Users\20241148060039\Downloads\Testing_acticons_car_store> git commit -m "atualizado o sonar"
+On branch main
+Your branch is up to date with 'origin/main'.
 
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+nothing to commit, working tree clean
+PS C:\Users\20241148060039\Downloads\Testing_acticons_car_store> git branch -M main
+PS C:\Users\20241148060039\Downloads\Testing_acticons_car_store> git add .
+PS C:\Users\20241148060039\Downloads\Testing_acticons_car_store> git commit -m "atualizado o sonar"
+On branch main
+Your branch is up to date with 'origin/main'.
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./TSI4M-LojaCarro-dev
-
-    steps:
-    - uses: actions/checkout@v4
-
-    - name: Set up JDK 17
-      uses: actions/setup-java@v4
-      with:
-        java-version: '17'
-        distribution: 'temurin'
-        cache: 'maven'
-
-    - name: Run Tests
-      run: mvn test
-
-    - name: Run Mutation Tests (PIT)
-      run: mvn org.pitest:pitest-maven:mutationCoverage
-
-    - name: Upload PIT Report
-      if: always()
-      uses: actions/upload-artifact@v4
-      with:
-        name: pit-mutation-report
-        path: TSI4M-LojaCarro-dev/target/pit-reports/
-        retention-days: 14
+nothing to commit, working tree clean
+PS C:\Users\20241148060039\Downloads\Testing_acticons_car_store>  
