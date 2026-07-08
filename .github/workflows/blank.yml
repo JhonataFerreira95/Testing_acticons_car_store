@@ -46,6 +46,6 @@ jobs:
           mvn -B
           sonar:sonar
           -Dsonar.projectKey=JhonataFerreira95_Testing_acticons_car_store
-          -Dsonar.organization=jhonataferreira95
+          -Dsonar.organization=jhonataferreira95-1
           -Dsonar.host.url=https://sonarcloud.io
           -Dsonar.token=${{ secrets.SONAR_TOKEN }}
