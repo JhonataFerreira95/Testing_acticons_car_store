@@ -5,7 +5,8 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.18</version> <relativePath/>
+        <version>2.7.18</version>
+        <relativePath/>
     </parent>
     <groupId>br.org.edu.ifrn</groupId>
     <artifactId>LojaCarro</artifactId>
@@ -32,17 +33,9 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <pitest.version>1.15.8</pitest.version>
         <pitest-junit5.version>1.2.1</pitest-junit5.version>
+        <sonar.organization>jhonataferreira95</sonar.organization>
     </properties>
     <dependencies>
-
-        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-dependencies</artifactId>
-            <version>3.5.7</version>
-            <type>pom</type>
-            <scope>import</scope>
-        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -53,8 +46,6 @@
         <dependency>
             <groupId>com.mysql</groupId>
             <artifactId>mysql-connector-j</artifactId>
-            <version>9.7.0</version>
-            <scope>compile</scope>
         </dependency>
 
         <dependency>
@@ -79,14 +70,23 @@
 
     <build>
         <plugins>
+
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.11.0.3922</version>
+            </plugin>
+
             <plugin>
                 <groupId>org.pitest</groupId>
                 <artifactId>pitest-maven</artifactId>
                 <version>${pitest.version}</version>
+
                 <dependencies>
                     <dependency>
                         <groupId>org.pitest</groupId>
@@ -94,22 +94,27 @@
                         <version>${pitest-junit5.version}</version>
                     </dependency>
                 </dependencies>
+
                 <configuration>
                     <targetClasses>
                         <param>br.org.edu.ifrn.LojaCarro.services.*</param>
                     </targetClasses>
+
                     <targetTests>
                         <param>br.org.edu.ifrn.LojaCarro.services.*</param>
                     </targetTests>
+
                     <mutators>
                         <mutator>DEFAULTS</mutator>
                     </mutators>
+
                     <threads>2</threads>
                     <timestampedReports>false</timestampedReports>
                     <mutationThreshold>60</mutationThreshold>
                     <coverageThreshold>60</coverageThreshold>
                 </configuration>
             </plugin>
+
         </plugins>
     </build>
 
