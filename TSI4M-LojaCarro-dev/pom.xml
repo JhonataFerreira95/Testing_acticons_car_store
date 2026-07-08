@@ -33,7 +33,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <pitest.version>1.15.8</pitest.version>
         <pitest-junit5.version>1.2.1</pitest-junit5.version>
-        <sonar.organization>jhonataferreira95</sonar.organization>
+        <sonar.organization>jhonataferreira95-1</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
     <dependencies>
